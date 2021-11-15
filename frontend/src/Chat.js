@@ -8,7 +8,6 @@ import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import MicIcon from "@material-ui/icons/Mic";
 import SendIcon from "@material-ui/icons/Send";
 import { useParams } from "react-router-dom";
-import { useStateValue } from "./StateProvider";
 
 function Chat() {
   const [seed, setSeed] = useState("");
@@ -16,7 +15,6 @@ function Chat() {
   const { roomId } = useParams();
   const [roomName, setRoomName] = useState("");
   const [messages, setMessages] = useState([]);
-  const [{ user }, dispatch] = useStateValue();
 
   /*useEffect(() => {
     if (roomId) {
