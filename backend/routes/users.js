@@ -42,7 +42,17 @@ router.delete("/:id", verify, async (req, res) => {
     res.status(403).json("You can delete only your account!");
   }
 });
-//GET
+//GET all users
+/*router.get("/", async (req, res) => {
+  try {
+    const users = await User.find();
+    console.log("all users");
+    res.status(200).json(users);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});*/
+//get users
 router.get("/", async (req, res) => {
   const userId = req.query.userId;
   const username = req.query.username;
@@ -56,5 +66,4 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 module.exports = router;
