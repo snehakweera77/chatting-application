@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import Sidebar from "./Sidebar";
-import Chat from "./Chat";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Login from "./pages/Login";
+import Chat from "./pages/chat/Chat";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
+import { useContext } from "react";
+import { AuthContext } from "./authContext/AuthContext";
 
 function App() {
-  const user = false;
+  const user = useContext(AuthContext).user;
+
   return (
-    <div className="app">
-      {!user ? (
-        <Login />
-      ) : (
-        <div className="app__body">
-          <Router>
-            <Sidebar />
-            <Switch>
-              <Route path="/rooms/:roomId">
-                <Chat />
-              </Route>
-              <Route path="/">
-                <Chat />
-              </Route>
-            </Switch>
-          </Router>
-        </div>
-      )}
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          {user ? <Chat /> : <Redirect to="/register" />}
+        </Route>
+        <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
+        <Route path="/register">
+          {user ? <Redirect to="/" /> : <Register />}
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
