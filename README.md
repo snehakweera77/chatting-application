@@ -1,21 +1,39 @@
-# WhatsappyApp
+# ChatUp
 
-A whatsapp Clone built with react nodejs and firebase, it allows you to send messages talk with people.
+ChatUp a messaging app built with react, nodejs, express, mongoDB and socket.io, it allows you to send messages to talk with people.
 
 # Preview
 
-![Preview](whatsapp-sign-in.jpeg?raw=true)
-![Preview](whatsapp-chat-screen.jpeg?raw=true)
+##### Register
+
+![Register](register.png?raw=true)
+</br>
+
+##### Login
+
+![Login](login.png?raw=true)
+</br>
+
+##### No Conversation Screen
+
+![No Conversation Screen](noConversationSelected.png?raw=true)
+</br>
+
+##### Conversation Screen
+
+![Conversation Screen](conversationScreen.png?raw=true)
+</br>
+
+### Features
+
+- Authentication using **JWT Tokens**
+- A **Private Chat** where users can chat with other users privately.
+- Real-time updates to the user list, conversation list, and conversation messages
 
 ## Tech Stack
 
-- [React](https://github.com/facebook/react)
-  - Create-react-app with highly complex frontend structure
-- [Redux](https://redux.js.org/)
-  - State management and redux thunk for asynchronous api calls
-- [Firebase](https://firebase.google.com/)
-  - Backend and database with firestore realtime DB and google authentication
-- [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
-  - Complex and dynamic route generation
+- Its frontend is built with [Material UI](https://material-ui.com/) running on top of React.
+- The backend is built with Express.js and Node.js.
+- Real-time message broadcasting is developed using [Socket.IO](https://socket.io/).
 
 ---
